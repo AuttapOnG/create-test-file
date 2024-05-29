@@ -2,7 +2,7 @@
   "name": "create-test-file",
   "displayName": "Create Test File",
   "description": "Adds the option to create a test file for a JavaScript file by right-clicking on it",
-  "version": "1.1.0",
+  "version": "1.5.2",
   "publisher": "longshotlabs",
   "engines": {
     "vscode": "^1.55.0"
@@ -16,7 +16,8 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.createTestFileFromMenu"
+    "onCommand:extension.createTestFileFromMenu",
+    "onCommand:extension.openTestFileFromMenu"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -24,12 +25,20 @@
       {
         "command": "extension.createTestFileFromMenu",
         "title": "Create Test File"
+      },
+      {
+        "command": "extension.openTestFileFromMenu",
+        "title": "Open Test File"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.createTestFileFromMenu",
+          "group": "test"
+        },
+        {
+          "command": "extension.openTestFileFromMenu",
           "group": "test"
         }
       ]
